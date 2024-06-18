@@ -2,11 +2,14 @@ package HometaskTwentySeven;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Data {
-    List<Integer> numbers = new ArrayList<>();
-public void add( int value){
 
+    List<Integer> numbers = new ArrayList<>();
+
+
+public void add( int value){
     numbers.add(value);
 }
 
@@ -17,12 +20,13 @@ public int reportMediumTemp (){
         sum += numbers.get(i);
         result = sum / numbers.size();
     }
+
    // System.out.println( result);
     return result;
 
 }
 
-public int getMaximumTemp(){
+/* public int getMaximumTemp(){
     int max = numbers.get(0);
 
     for (int i = 0; i < numbers.size(); i++) {
@@ -33,7 +37,8 @@ public int getMaximumTemp(){
     }
     System.out.println(max);
     return max;
-}
+} */
+
 public int compareTemp(){
     if(numbers.size() < 2) return - 1;
     int last =  numbers.get(numbers.size() - 1);
@@ -91,8 +96,4 @@ public int mediumTempForEachHundred(){
     }
     return sum / counter;
 }
-
-
-
-
 }

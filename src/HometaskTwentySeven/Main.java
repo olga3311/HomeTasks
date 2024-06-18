@@ -18,8 +18,10 @@ package HometaskTwentySeven;
 //реднюю температуру каждого 100ого измерения
 
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -27,19 +29,23 @@ public class Main {
     public static void main(String[] args) {
 
         Data data = new Data();
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
 
+
+        int i = 0;
         while (true) {
-            int value = scanner.nextInt();
-
+            int value = 1+ random.nextInt(1000);
+            //int value = random.nextInt();
+             if (i == 1001) {break;}else {i++;}
             if (value == -1) {
                 break;
             }
             
 
             int previousMedium = data.reportMediumTemp();
-
+            System.out.println(">>>"+value+"<<<");
             data.add(value);
             System.out.println("1. Medium temperature: " + data.reportMediumTemp());
             System.out.println("2. The temperature difference: " + data.compareTemp());
@@ -47,6 +53,7 @@ public class Main {
                     value - data.compareTemp() , value));
             System.out.println("4. " + data.mediumFromTen());
             System.out.println("5. " + data.mediumTempForEachHundred());
+            System.out.println("====================================");
 
 
     }
