@@ -13,16 +13,16 @@ public class Deposit implements Comparable<Deposit> {
         this.amount = amount;
         this.percent = percent;
         this.years = years;
-        this.totalProfit();
+        this.profit = totalProfit();
+        this.mediumProfit = profit / years;
     }
 
-    public void totalProfit(){
+    public int totalProfit(){
         int tempAmount = amount;
         for (int i = 0; i < years; i++) {
            tempAmount = tempAmount +((tempAmount *  percent) / 100);
         }
-        profit = tempAmount - amount;
-        mediumProfit = profit / years;
+        return tempAmount - amount;
     }
 
 

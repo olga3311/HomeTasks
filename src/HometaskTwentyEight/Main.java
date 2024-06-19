@@ -70,9 +70,5 @@ public class Main {
                  ", 2." + lines.get(1).getMediumProfit() +
                  ", 3. " + lines.get(2).getMediumProfit());
 
-
-
-
-
     }
 }
