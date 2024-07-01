@@ -30,12 +30,12 @@ public class Main {
 
         } else {
 
-        Message<Integer> message1 = new Message<>();
-        message1.setMessage(scanner.nextInt());
-        Integer integer = message1.getMessage();
+            Message<Integer> message1 = new Message<>();
+            message1.setMessage(scanner.nextInt());
+            Integer integer = message1.getMessage();
 
-        System.out.println(integer);
+            System.out.println(integer);
 
-    }
+        }
     }
 }

@@ -2,7 +2,7 @@ package HometaskThirtyOne;
 
 public class Message<T> {
 
-private T message;
+    private T message;
 
 
     public T getMessage() {
