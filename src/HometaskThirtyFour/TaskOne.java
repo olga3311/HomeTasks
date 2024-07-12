@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 
 public class TaskOne {
@@ -33,27 +32,29 @@ public class TaskOne {
         cars.add(car5);
         cars.add(car6);
 
-        Optional<Integer> result = cars.stream()
-
+        Integer result = cars.stream()
                 .filter(c -> c.getDate() > 1999)
                 .map(Car::getMileage)
-                .reduce(Integer::sum);
+                .reduce((x, y) -> x + y)
+                .orElse(0);
+
         System.out.println(result);
 
 
-        Optional<Integer> result2 = cars.stream()
+        Car result2 = cars.stream()
 
                 .filter(c -> c.getMileage() > 500000)
-                .map(Car::getDate)
-                .min(Comparator.naturalOrder());
+                .min((x, y) -> x.getDate() - y.getDate())
+                .orElse(null);
+
         System.out.println(result2);
 
-        Optional<Integer> result3 = cars.stream()
+        Car result3 = cars.stream()
 
                 .filter(c -> c.getName().startsWith("W") || c.getName().startsWith("V"))
-                .map(Car::getMileage)
-                .filter(c -> c <= 200000)
-                .max(Comparator.naturalOrder());
+                .filter(c -> c.getMileage() < 200000)
+                .max(Comparator.comparing(c -> c.getMileage()))
+                .orElse(null);
 
         System.out.println(result3);
 
