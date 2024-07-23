@@ -1,52 +1,42 @@
 package Lottery;
 /*
 Программа при запуске генерирует 6 чисел из 45 (от 1 до 45), числа должны быть уникальные
-Пользователь вводит свои 6 вариантов чисел +
+Пользователь вводит свои 6 вариантов чисел    +
 
- Программа определяет, сколько чисел пользователь угадал и выводит результат.
+Программа определяет, сколько чисел пользователь угадал и выводит результат.
 В случае попадания во все 6 цифр - сообщает о джекпоте
-Реализовать по принципам ООП
+
 Доп. задание:
-Добавить возможность множественного выбора цифр (можно выбрать несколько раз по 6 цифр).
+Добавить возможность множественного выбора цифр (можно выбрать несколько раз по 6 цифр)   .+
 Соответственно, выбрать среди всех комбинаций - самую удачную
  */
 
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 import java.util.Scanner;
+/**
+ * Класс Main содержит основной метод для запуска лотерейной игры.
+ * Константы maxNumber и numberOfElem определяют максимальное значение числа и количество чисел для игры.
+ */
 
 public class Main {
+    private static final int maxNumber = 45;
+    private static final int numberOfElem = 6;
+
     public static void main(String[] args) {
 
+        System.out.println("Lottery game welcomes you!");
 
-        List<Integer> list1 = new ArrayList<>();
-        Random random = new Random();
+        LotteryGame lotteryGame = new LotteryGame(maxNumber, numberOfElem);
 
-        while (list1.size() != 6){
-            int number = random.nextInt(45);
-            if(!list1.contains(number)){
-            list1.add(number);}
-        }
-        System.out.println(list1);
-
-
-        System.out.println("Веедите шесть  уникальных не больше 45: ");
         Scanner scanner = new Scanner(System.in);
-        List<Integer> list2 = new ArrayList<>();
-        List <List<Integer>> totalList = new ArrayList<>();
+        lotteryGame.userMenu();
+        lotteryGame.generateRandomNumber();
+        lotteryGame.findMatch();
 
-while () {
-    while (list2.size() != 6) {
-        int number = scanner.nextInt();
-        if (!list2.contains(number) && number <= 45) {
-            list2.add(number);
-        }
-    }
-    System.out.println(list2);
-
-}
 
     }
 }
+
